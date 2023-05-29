@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+}
+#title-page{
+    text-align:center;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr 4fr 0.5fr;
+}
+main{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+}
+#input-text-container{
+    align-self: center;
+}
+#prev-container{
+    border-radius: 1rem;
+    flex-grow: 1;
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+#input-textarea{
+    width: 400px;
+    height: 400px;
+    resize: none;
+}
