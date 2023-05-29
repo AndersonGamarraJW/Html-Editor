@@ -3,11 +3,15 @@
 
 const prevContainer = document.getElementById('prev-container');
 const textArea = document.getElementById('input-textarea');
-
+function selectHtmlElement(event){
+    let element = event.target;
+    console.log(element.tagName);
+}
 
 class HtmlElementGenerator{
     constructor(htmlElement){
         this.htmlElement = document.createElement(htmlElement);
+        this.htmlElement.addEventListener('click',selectHtmlElement);
     }
     addText(content){
         this.htmlElement.textContent = content;
