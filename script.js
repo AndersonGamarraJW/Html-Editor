@@ -28,9 +28,7 @@ class HtmlGeneratorString{
     }
 }
 
-function selectHtmlElement(){
-    
-}
+
 
 function createTitleFromTextArea(){
     let titleGenerator = new HtmlElementGenerator('h1');
