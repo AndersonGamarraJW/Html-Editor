@@ -29,7 +29,7 @@ function selectHtmlElement(event){
 
 class HtmlElementGenerator{
     constructor(htmlElement){
-        this.htmlElement = document.createElement(htmlElement);
+        this.htmlElement = document.createElement(htmlElement.toLowerCase());
         this.htmlElement.addEventListener('click',selectHtmlElement);
     }
     addText(content){
@@ -64,9 +64,9 @@ function createSubtitleFromTextArea(){
     const currentHtmlTag = currentHtmlElement.getTag();
     let numberH = Number(currentHtmlTag[1]);
     numberH += 1;
-    
+    const newHtmlElement = currentHtmlTag[0] + numberH.toString();  
 
-    console.log(numberH);
+    console.log(newHtmlElement);
 }
 const titleButton = document.getElementById('title-button');
 titleButton.addEventListener('click',createTitleFromTextArea);
