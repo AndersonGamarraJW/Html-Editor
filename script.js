@@ -114,8 +114,8 @@ class TitleCommand {
         this.textContent = textContent;
         this.h1ElementGenerator.addText(this.textContent);
     }
-    execute(){
-        prevContainer.appendChild(this.h1ElementGenerator.getResult());
+    execute(htmlElementSup){
+        htmlElementSup.appendChild(this.h1ElementGenerator.getResult());
     }
     undo(){
 
@@ -126,14 +126,14 @@ class SubtitleCommand{
         this.textSubtitle = textContent;
         this.currentHtmlElementTag = currentHtmlElement.getTag(); 
     }
-    execute(){
+    execute(htmlElementSup){
         let numberH = Number(this.currentHtmlElementTag[1]);
         numberH += 1;
         const newHeaderTag = this.currentHtmlElementTag[0] + numberH.toString();
         const subtitleElement = new HtmlElementGenerator(newHeaderTag);
         if(this.textSubtitle != ''){
             subtitleElement.addText(this.textSubtitle);
-            prevContainer.appendChild(subtitleElement.getResult());
+            htmlElementSup.appendChild(subtitleElement.getResult());
             textArea.value = '';
         }
         
@@ -147,7 +147,7 @@ class deleteCommand{
     constructor(htmlElement){
         this.htmlElement = htmlElement;
     }
-    execute(){
+    execute(htmlElementSup){
         this.htmlElement.remove();
     }
     undo(){
@@ -158,11 +158,11 @@ class ParagraphCommand{
     constructor(textContent){
         this.textContent = textContent;
     }
-    execute(){
+    execute(htmlElementSup){
         const paragraphHtmlElement = new HtmlElementGenerator('p');
         paragraphHtmlElement.addText(this.textContent);
         
-        prevContainer.appendChild(paragraphHtmlElement.getResult());
+        htmlElementSup.appendChild(paragraphHtmlElement.getResult());
     }
     undo(){
 
