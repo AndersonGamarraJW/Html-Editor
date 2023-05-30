@@ -5,7 +5,7 @@ const prevContainer = document.getElementById('prev-container');
 const textArea = document.getElementById('input-textarea');
 
 //Current element module
-const currentElement = (()=>{
+const currentHtmlElement = (()=>{
     let currentElement = null;
     const getElement = () => currentElement;
     const setElement = (current) => currentElement = current;
@@ -23,8 +23,8 @@ const currentElement = (()=>{
 )();
 
 function selectHtmlElement(event){
-    currentElement.setElement(event.target);
-    console.log(currentElement.getTag());
+    currentHtmlElement.setElement(event.target);
+    console.log(currentHtmlElement.getTag());
 }
 
 class HtmlElementGenerator{
@@ -59,8 +59,10 @@ function createTitleFromTextArea(){
     prevContainer.appendChild(titleGenerator.getResult());
 }
 
+
 function createSubtitleFromTextArea(){
-       
+    const currentHtml = currentHtmlElement.getElement();
+
     let subtitleGenerator = new HtmlElementGenerator();
 
 }
