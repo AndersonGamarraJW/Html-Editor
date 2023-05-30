@@ -72,3 +72,11 @@ main{
     background-color: red;
     color: white;
 }
+#tool-bar-container{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+#tool-bar-container > button{
+    height: 30px;
+}
