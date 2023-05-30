@@ -57,6 +57,8 @@ function createTitleFromTextArea(){
     let titleGenerator = new HtmlElementGenerator('h1');
     titleGenerator.addText(textArea.value);
     prevContainer.appendChild(titleGenerator.getResult());
+    //Empty Text Area
+    textArea.value = '';
 }
 
 
@@ -69,6 +71,7 @@ function createSubtitleFromTextArea(){
     const subtitleGenerator = new HtmlElementGenerator(newHtmlElement);
     subtitleGenerator.addText(textArea.value);
     prevContainer.appendChild(subtitleGenerator.getResult());
+    textArea.value='';
 }
 const titleButton = document.getElementById('title-button');
 titleButton.addEventListener('click',createTitleFromTextArea);
