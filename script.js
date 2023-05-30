@@ -8,7 +8,7 @@ const textArea = document.getElementById('input-textarea');
 const currentElement = (()=>{
     let currentElement = null;
     const getElement = () => currentElement;
-    const setElement = (currentElement) => currentElement = currentElement;
+    const setElement = (current) => currentElement = current;
     const getTag = () => currentElement.tagName;
     const getContent = () => currentElement.innerHTML;
     const getString = () => currentElement.outerHTML;
@@ -23,8 +23,8 @@ const currentElement = (()=>{
 )();
 
 function selectHtmlElement(event){
-    let element = event.target;
-    console.log(element.innerHTML);
+    currentElement.setElement(event.target);
+    console.log(currentElement.getTag());
 }
 
 class HtmlElementGenerator{
