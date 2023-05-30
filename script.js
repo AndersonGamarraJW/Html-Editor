@@ -3,9 +3,28 @@
 
 const prevContainer = document.getElementById('prev-container');
 const textArea = document.getElementById('input-textarea');
+
+//Current element module
+const currentElement = (()=>{
+    let currentElement = null;
+    const getCurrentElementHtml = () => currentElement;
+    const setCurrentElementHtml = (currentElement) => currentElement = currentElement;
+    const getTag = () => currentElement.tagName;
+    const getContent = () => currentElement.innerHTML;
+    const getStringHtml = () => currentElement.outerHTML;
+    return{
+        getCurrentElementHtml,
+        setCurrentElementHtml,
+        getTag,
+        getContent,
+        getStringHtml
+    }
+}
+)();
+
 function selectHtmlElement(event){
     let element = event.target;
-    console.log(element.tagName);
+    console.log(element.innerHTML);
 }
 
 class HtmlElementGenerator{
