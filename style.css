@@ -115,5 +115,9 @@ main{
     background-color: var(--contrast-color);
 }
 footer{
-    background-color: var(--contrast-color)
+    background-color: var(--contrast-color);
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--negative-color);
+    border-radius: 1rem;
 }
