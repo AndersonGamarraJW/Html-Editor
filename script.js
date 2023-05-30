@@ -40,7 +40,6 @@ const currentHtmlElement = (()=>{
         select,
         unSelect,
         isSelect
-    
     }
 }
 )();
@@ -101,7 +100,15 @@ class ToolBar{
     //Vamos a refactorizar cada execute de los comandos para que tenga un
     //donde se creara
     executeCommand(command){
-        command.execute();
+        if (currentHtmlElement.isSelect() == true){
+            command.execute(currentHtmlElement.getElement());
+        }
+        else {
+            const aux = document.createElement('div');
+            prevContainer.appendChild(aux);
+            command.execute(aux);
+            aux.remove();
+        }
         this.commandHistory.addCommand(command);   
     }
     undo(){
@@ -115,7 +122,7 @@ class TitleCommand {
         this.h1ElementGenerator.addText(this.textContent);
     }
     execute(htmlElementSup){
-        htmlElementSup.appendChild(this.h1ElementGenerator.getResult());
+        htmlElementSup.insertAdjacentElement('afterend',this.h1ElementGenerator.getResult());
     }
     undo(){
 
@@ -133,7 +140,7 @@ class SubtitleCommand{
         const subtitleElement = new HtmlElementGenerator(newHeaderTag);
         if(this.textSubtitle != ''){
             subtitleElement.addText(this.textSubtitle);
-            htmlElementSup.appendChild(subtitleElement.getResult());
+            htmlElementSup.insertAdjacentElement(subtitleElement.getResult());
             textArea.value = '';
         }
         
@@ -162,7 +169,7 @@ class ParagraphCommand{
         const paragraphHtmlElement = new HtmlElementGenerator('p');
         paragraphHtmlElement.addText(this.textContent);
         
-        htmlElementSup.appendChild(paragraphHtmlElement.getResult());
+        htmlElementSup.insertAdjacentElement(paragraphHtmlElement.getResult());
     }
     undo(){
 
