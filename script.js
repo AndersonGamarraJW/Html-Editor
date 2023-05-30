@@ -200,6 +200,7 @@ subtitleButton.addEventListener('click',()=>{
 const deleteItemSelected = document.getElementById('button-delete-item-selected');
 deleteItemSelected.addEventListener('click',() =>{
     toolBar.executeCommand(new deleteCommand(currentHtmlElement.getElement()));
+    currentHtmlElement.unSelect();
 });
 const paragraphButton = document.getElementById('parrafo-button');
 paragraphButton.addEventListener('click',()=>{
