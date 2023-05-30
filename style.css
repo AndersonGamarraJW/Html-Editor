@@ -5,6 +5,8 @@
     --button-color :#434242;
     --negative-color : #222222;
     --contrast-color:#22A39F;
+    --danger-color :#CD1818;
+    --light-danger-color: #F15A59;
 }
 *{
     box-sizing: border-box;
@@ -79,8 +81,15 @@ main{
     background-color: yellow;
 }
 #button-delete-item-selected{
-    background-color: red;
+    background-color: var(--light-danger-color);
     color: white;
+    border: none;
+    border-radius: 0.4rem;
+    box-shadow: 0px 0px 5px 0px black;
+    transition:background-color 0.3s ease;
+}
+#button-delete-item-selected:hover{
+    background-color: var(--danger-color);
 }
 #tool-bar-container{
     display: flex;
@@ -91,6 +100,13 @@ main{
     height: 30px;
     background-color: var(--button-color);
     color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition:background-color 0.3s ease;
+    box-shadow: 0px 0px 5px 0px black;
+}
+#tool-bar-container > button:hover{
+    background-color: var(--contrast-color);
 }
 footer{
     background-color: var(--contrast-color)
