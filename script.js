@@ -7,17 +7,17 @@ const textArea = document.getElementById('input-textarea');
 //Current element module
 const currentElement = (()=>{
     let currentElement = null;
-    const getCurrentElementHtml = () => currentElement;
-    const setCurrentElementHtml = (currentElement) => currentElement = currentElement;
+    const getElement = () => currentElement;
+    const setElement = (currentElement) => currentElement = currentElement;
     const getTag = () => currentElement.tagName;
     const getContent = () => currentElement.innerHTML;
-    const getStringHtml = () => currentElement.outerHTML;
+    const getString = () => currentElement.outerHTML;
     return{
-        getCurrentElementHtml,
-        setCurrentElementHtml,
+        getElement,
+        setElement,
         getTag,
         getContent,
-        getStringHtml
+        getString
     }
 }
 )();
