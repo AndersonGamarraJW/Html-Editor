@@ -51,7 +51,19 @@ class HtmlGeneratorString{
     }
 }
 
+class TitleCommand {
+    constructor(textContent){
+        this.h1ElementGenerator = new HtmlElementGenerator('h1');
+        this.textContent = textContent;
+        this.h1ElementGenerator.addText(this.textContent);
+    }
+    execute(){
+        prevContainer.appendChild(this.h1ElementGenerator.getResult());
+    }
+    undo(){
 
+    }
+}
 
 function createTitleFromTextArea(){
     let titleGenerator = new HtmlElementGenerator('h1');
@@ -74,6 +86,6 @@ function createSubtitleFromTextArea(){
     textArea.value='';
 }
 const titleButton = document.getElementById('title-button');
-titleButton.addEventListener('click',createTitleFromTextArea);
+titleButton.addEventListener('click',);
 const subtitleButton = document.getElementById('subtitle-button');
 subtitleButton.addEventListener('click',createSubtitleFromTextArea);
