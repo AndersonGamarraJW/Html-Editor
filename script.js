@@ -6,7 +6,7 @@ const textArea = document.getElementById('input-textarea');
 const prevCurrentSelectElement = document.getElementById('prev-current-select-paragraph');
 //Current element module
 const currentHtmlElement = (()=>{
-    let currentElement = null;
+    let currentElement = document.createElement('h1');
     const getElement = () => currentElement;
     const setElement = (current) => currentElement = current;
     const getTag = () => currentElement.tagName;
