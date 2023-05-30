@@ -7,24 +7,38 @@ const prevCurrentSelectElement = document.getElementById('prev-current-select-pa
 //Current element module
 const currentHtmlElement = (()=>{
     let currentElement = document.createElement('h1');
+    let lastStyleClass = '';
     const getElement = () => currentElement;
     const setElement = (current) => currentElement = current;
     const getTag = () => currentElement.tagName;
     const getContent = () => currentElement.innerHTML;
     const getString = () => currentElement.outerHTML;
+    const addStyleClass = (styleClass) =>{
+        lastStyleClass = styleClass;
+        currentElement.classList.add(styleClass);
+    }
+    const removeLastStyleClass = ()=>{
+        if(lastStyleClass == '')
+            return;
+        currentElement.classList.remove(lastStyleClass);
+    }
     return{
         getElement,
         setElement,
         getTag,
         getContent,
-        getString
+        getString,
+        addStyleClass,
+        removeLastStyleClass
     }
 }
 )();
 
 function selectHtmlElement(event){
+    currentHtmlElement.removeLastStyleClass();
     currentHtmlElement.setElement(event.target);
     prevCurrentSelectElement.textContent = currentHtmlElement.getTag();
+    currentHtmlElement.addStyleClass('element-selected');
 }
 
 class HtmlElementGenerator{

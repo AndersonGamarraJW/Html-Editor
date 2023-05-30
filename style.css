@@ -45,3 +45,6 @@ main{
 #prev-current-select-container > p{
     margin: 0px;
 }
+.element-selected{
+    background-color: yellow;
+}
