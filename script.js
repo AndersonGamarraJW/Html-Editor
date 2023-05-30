@@ -3,7 +3,7 @@
 
 const prevContainer = document.getElementById('prev-container');
 const textArea = document.getElementById('input-textarea');
-
+const prevCurrentSelectElement = document.getElementById('prev-current-select');
 //Current element module
 const currentHtmlElement = (()=>{
     let currentElement = null;
@@ -24,7 +24,7 @@ const currentHtmlElement = (()=>{
 
 function selectHtmlElement(event){
     currentHtmlElement.setElement(event.target);
-    console.log(currentHtmlElement.getTag());
+    prevCurrentSelectElement.textContent = currentHtmlElement.getTag();
 }
 
 class HtmlElementGenerator{
