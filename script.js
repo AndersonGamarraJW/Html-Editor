@@ -75,27 +75,29 @@ class TitleCommand {
 
     }
 }
+class SubtitleCommand{
+    constructor(textContent){
+        this.textSubtitle = textContent;
+        this.currentHtmlElementTag = currentHtmlElement.getTag(); 
+    }
+    execute(){
+        let numberH = Number(this.currentHtmlElementTag[1]);
+        numberH += 1;
+        const newHeaderTag = this.currentHtmlElementTag[0] + numberH.toString();
+        const subtitleElement = new HtmlElementGenerator(newHeaderTag);
+        
+        if(this.textSubtitle != ''){
+            subtitleElement.addText(this.textSubtitle);
+            prevContainer.appendChild(subtitleElement.getResult());
+            textArea.value = '';
+        }
+        
+    }
+    undo(){
 
-function createTitleFromTextArea(){
-    let titleGenerator = new HtmlElementGenerator('h1');
-    titleGenerator.addText(textArea.value);
-    prevContainer.appendChild(titleGenerator.getResult());
-    //Empty Text Area
-    textArea.value = '';
+    }
 }
 
-
-function createSubtitleFromTextArea(){
-    const currentHtmlTag = currentHtmlElement.getTag();
-    let numberH = Number(currentHtmlTag[1]);
-    numberH += 1;
-    const newHtmlElement = currentHtmlTag[0] + numberH.toString();  
-    //Create subtitle
-    const subtitleGenerator = new HtmlElementGenerator(newHtmlElement);
-    subtitleGenerator.addText(textArea.value);
-    prevContainer.appendChild(subtitleGenerator.getResult());
-    textArea.value='';
-}
 toolBar = new ToolBar();
 
 const titleButton = document.getElementById('title-button');
@@ -103,4 +105,6 @@ titleButton.addEventListener('click',()=>{
     toolBar.executeCommand(new TitleCommand(textArea.value));
 });
 const subtitleButton = document.getElementById('subtitle-button');
-subtitleButton.addEventListener('click',createSubtitleFromTextArea);
+subtitleButton.addEventListener('click',()=>{
+    toolBar.executeCommand(new SubtitleCommand(textArea.value));
+});
