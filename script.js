@@ -169,7 +169,7 @@ class ParagraphCommand{
         const paragraphHtmlElement = new HtmlElementGenerator('p');
         paragraphHtmlElement.addText(this.textContent);
         
-        htmlElementSup.insertAdjacentElement(paragraphHtmlElement.getResult());
+        htmlElementSup.insertAdjacentElement('afterend',paragraphHtmlElement.getResult());
     }
     undo(){
 
