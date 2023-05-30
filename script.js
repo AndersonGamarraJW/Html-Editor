@@ -56,6 +56,17 @@ function prevUpdateTexContentItemSelected(e){
     currentHtmlElement.setContent(e.target.value);
 }
 
+function copyHtmlClipboard(){
+    const content = prevContainer.innerHTML;
+    navigator.clipboard.writeText(content)
+        .then(()=>{
+            console.log('Se copio con exito');
+        })
+        .catch((error)=>{
+            console.error('Error al copiar al portapeles',error);
+        });
+}
+
 itemSelectedEditTextArea.addEventListener('input',(e)=>{prevUpdateTexContentItemSelected(e)});
 
 class HtmlElementGenerator{
@@ -194,3 +205,5 @@ const paragraphButton = document.getElementById('parrafo-button');
 paragraphButton.addEventListener('click',()=>{
     toolBar.executeCommand(new ParagraphCommand(textArea.value));
 });
+const copyHtmlClipboardButton = document.getElementById('copy-html-clipboard');
+copyHtmlClipboardButton.addEventListener('click',copyHtmlClipboard); 
