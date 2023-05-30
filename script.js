@@ -103,6 +103,7 @@ class SubtitleCommand{
             textArea.value = '';
         }
         
+        
     }
     undo(){
 
@@ -119,3 +120,4 @@ const subtitleButton = document.getElementById('subtitle-button');
 subtitleButton.addEventListener('click',()=>{
     toolBar.executeCommand(new SubtitleCommand(textArea.value));
 });
+
