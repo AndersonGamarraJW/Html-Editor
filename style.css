@@ -68,9 +68,10 @@ main{
 }
 #edit-textarea{
     resize: none;
+}
+.text-area{
     border: 1px solid var(--negative-color);
     border-radius: 0.5rem;
-
 }
 #prev-current-select-container{
     height: 35px;
