@@ -61,10 +61,14 @@ function createTitleFromTextArea(){
 
 
 function createSubtitleFromTextArea(){
-    const currentHtml = currentHtmlElement.getElement();
+    const currentHtmlTag = currentHtmlElement.getTag();
+    let numberH = Number(currentHtmlTag[1]);
+    numberH += 1;
+    
 
-    let subtitleGenerator = new HtmlElementGenerator();
-
+    console.log(numberH);
 }
 const titleButton = document.getElementById('title-button');
 titleButton.addEventListener('click',createTitleFromTextArea);
+const subtitleButton = document.getElementById('subtitle-button');
+subtitleButton.addEventListener('click',createSubtitleFromTextArea);
