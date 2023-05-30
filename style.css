@@ -68,3 +68,7 @@ main{
 .element-selected{
     background-color: yellow;
 }
+#button-delete-item-selected{
+    background-color: red;
+    color: white;
+}

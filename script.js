@@ -123,6 +123,17 @@ class SubtitleCommand{
 
     }
 }
+class deleteCommand{
+    constructor(htmlElement){
+        this.htmlElement = htmlElement;
+    }
+    execute(){
+        this.htmlElement.remove();
+    }
+    undo(){
+
+    }
+}
 
 toolBar = new ToolBar();
 
@@ -133,5 +144,9 @@ titleButton.addEventListener('click',()=>{
 const subtitleButton = document.getElementById('subtitle-button');
 subtitleButton.addEventListener('click',()=>{
     toolBar.executeCommand(new SubtitleCommand(textArea.value));
+});
+const deleteItemSelected = document.getElementById('button-delete-item-selected');
+deleteItemSelected.addEventListener('click',() =>{
+    toolBar.executeCommand(new deleteCommand(currentHtmlElement.getElement()));
 });
 
