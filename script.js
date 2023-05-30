@@ -140,7 +140,7 @@ class SubtitleCommand{
         const subtitleElement = new HtmlElementGenerator(newHeaderTag);
         if(this.textSubtitle != ''){
             subtitleElement.addText(this.textSubtitle);
-            htmlElementSup.insertAdjacentElement(subtitleElement.getResult());
+            htmlElementSup.insertAdjacentElement('afterend',subtitleElement.getResult());
             textArea.value = '';
         }
         
