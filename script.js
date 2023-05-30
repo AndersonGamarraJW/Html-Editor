@@ -98,6 +98,8 @@ class ToolBar{
     constructor(){
         this.commandHistory = new CommandHistory();
     }
+    //Vamos a refactorizar cada execute de los comandos para que tenga un
+    //donde se creara
     executeCommand(command){
         command.execute();
         this.commandHistory.addCommand(command);   
