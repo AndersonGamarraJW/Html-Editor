@@ -37,11 +37,17 @@ main{
 }
 #toolbar-item-selected{
     display: flex;
-    height: 25px;
+    height: 30px;
     gap: 1rem;
 }
+#toolbar-item-selected button{
+    width: 30px;
+}
 .item-selected-tool{
-    flex-grow: 1;
+    flex-grow: 0;
+}
+#edit-textarea{
+    flex-grow: 4;
 }
 #input-textarea{
     width: 400px;
