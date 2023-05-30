@@ -9,6 +9,7 @@ const itemSelectedEditTextArea = document.getElementById('edit-textarea');
 const currentHtmlElement = (()=>{
     let currentElement = document.createElement('h1');
     let lastStyleClass = '';
+    let selectValue = false;
     const getElement = () => currentElement;
     const setElement = (current) => currentElement = current;
     const getTag = () => currentElement.tagName;
@@ -24,6 +25,9 @@ const currentHtmlElement = (()=>{
             return;
         currentElement.classList.remove(lastStyleClass);
     }
+    const select = () => selectValue = true;
+    const unSelect = () => selectValue = false;
+    const isSelect = () => selectValue;
     return{
         getElement,
         setElement,
@@ -32,7 +36,11 @@ const currentHtmlElement = (()=>{
         setContent,
         getString,
         addStyleClass,
-        removeLastStyleClass
+        removeLastStyleClass,
+        select,
+        unSelect,
+        isSelect
+    
     }
 }
 )();
@@ -40,6 +48,7 @@ const currentHtmlElement = (()=>{
 function selectHtmlElement(event){
     currentHtmlElement.removeLastStyleClass();
     currentHtmlElement.setElement(event.target);
+    currentHtmlElement.select();
     prevCurrentSelectElement.textContent = currentHtmlElement.getTag();
     currentHtmlElement.addStyleClass('element-selected');
     itemSelectedEditTextArea.value = currentHtmlElement.getContent();
@@ -150,6 +159,7 @@ class ParagraphCommand{
     execute(){
         const paragraphHtmlElement = new HtmlElementGenerator('p');
         paragraphHtmlElement.addText(this.textContent);
+        
         prevContainer.appendChild(paragraphHtmlElement.getResult());
     }
     undo(){
