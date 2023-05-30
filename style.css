@@ -9,7 +9,7 @@
     --light-danger-color: #F15A59;
 }
 *{
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 #title-page{
     text-align:center;
@@ -81,12 +81,18 @@ main{
     border: 1px solid black;
     display: grid;
     place-items: center;
+    background-color: var(--negative-color);
+    color: white;
+
 }
 #prev-current-select-container > p{
     margin: 0px;
 }
 .element-selected{
-    background-color: yellow;
+    border: 1px solid var(--contrast-color);
+    border-radius: 0.5rem;
+    transition: border 0.2s ease-in,border-radius 0.2s ease;
+    box-sizing: border-box;
 }
 #button-delete-item-selected{
     background-color: var(--light-danger-color);

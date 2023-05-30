@@ -134,6 +134,7 @@ class TitleCommand {
     }
     execute(htmlElementSup){
         htmlElementSup.insertAdjacentElement('afterend',this.h1ElementGenerator.getResult());
+        textArea.value = '';
     }
     undo(){
 
@@ -167,6 +168,7 @@ class deleteCommand{
     }
     execute(htmlElementSup){
         this.htmlElement.remove();
+        itemSelectedEditTextArea.value = '';
     }
     undo(){
 
@@ -181,6 +183,7 @@ class ParagraphCommand{
         paragraphHtmlElement.addText(this.textContent);
         
         htmlElementSup.insertAdjacentElement('afterend',paragraphHtmlElement.getResult());
+        textArea.value = '';
     }
     undo(){
 
