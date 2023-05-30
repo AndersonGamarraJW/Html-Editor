@@ -143,6 +143,19 @@ class deleteCommand{
 
     }
 }
+class ParagraphCommand{
+    constructor(textContent){
+        this.textContent = textContent;
+    }
+    execute(){
+        const paragraphHtmlElement = new HtmlElementGenerator('p');
+        paragraphHtmlElement.addText(this.textContent);
+        prevContainer.appendChild(paragraphHtmlElement.getResult());
+    }
+    undo(){
+
+    }
+}
 
 toolBar = new ToolBar();
 
@@ -158,4 +171,7 @@ const deleteItemSelected = document.getElementById('button-delete-item-selected'
 deleteItemSelected.addEventListener('click',() =>{
     toolBar.executeCommand(new deleteCommand(currentHtmlElement.getElement()));
 });
-
+const paragraphButton = document.getElementById('parrafo-button');
+paragraphButton.addEventListener('click',()=>{
+    toolBar.executeCommand(new ParagraphCommand(textArea.value));
+});
