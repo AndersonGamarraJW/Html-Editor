@@ -72,6 +72,7 @@ main{
 .text-area{
     border: 1px solid var(--negative-color);
     border-radius: 0.5rem;
+    padding: 5px;
 }
 #prev-current-select-container{
     height: 35px;
