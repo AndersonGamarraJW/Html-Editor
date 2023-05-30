@@ -51,12 +51,24 @@ class HtmlGeneratorString{
     }
 }
 
+class CommandHistory{
+    constructor(){
+        this.commandHistory = [];
+    }
+    addCommand(command){
+        this.commandHistory.push(command);
+    }
+    popCommand(){
+        return this.commandHistory.pop();
+    }
+}
 class ToolBar{
     constructor(){
-
+        this.commandHistory = new CommandHistory();
     }
     executeCommand(command){
-        command.execute();   
+        command.execute();
+        this.commandHistory.addCommand(command);   
     }
     undo(){
         
@@ -85,7 +97,6 @@ class SubtitleCommand{
         numberH += 1;
         const newHeaderTag = this.currentHtmlElementTag[0] + numberH.toString();
         const subtitleElement = new HtmlElementGenerator(newHeaderTag);
-        
         if(this.textSubtitle != ''){
             subtitleElement.addText(this.textSubtitle);
             prevContainer.appendChild(subtitleElement.getResult());
