@@ -34,9 +34,14 @@ main{
     height: 400px;
     resize: none;
 }
-#prev-current-select{
+#prev-current-select-container{
     height: 35px;
     width: 70px;
     border-radius: 0.5rem;
     border: 1px solid black;
+    display: grid;
+    place-items: center;
+}
+#prev-current-select-container > p{
+    margin: 0px;
 }

@@ -3,7 +3,7 @@
 
 const prevContainer = document.getElementById('prev-container');
 const textArea = document.getElementById('input-textarea');
-const prevCurrentSelectElement = document.getElementById('prev-current-select');
+const prevCurrentSelectElement = document.getElementById('prev-current-select-paragraph');
 //Current element module
 const currentHtmlElement = (()=>{
     let currentElement = null;
