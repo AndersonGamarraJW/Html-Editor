@@ -4,6 +4,7 @@
 const prevContainer = document.getElementById('prev-container');
 const textArea = document.getElementById('input-textarea');
 const prevCurrentSelectElement = document.getElementById('prev-current-select-paragraph');
+const itemSelectedEditTextArea = document.getElementById('edit-textarea');
 //Current element module
 const currentHtmlElement = (()=>{
     let currentElement = document.createElement('h1');
@@ -12,6 +13,7 @@ const currentHtmlElement = (()=>{
     const setElement = (current) => currentElement = current;
     const getTag = () => currentElement.tagName;
     const getContent = () => currentElement.innerHTML;
+    const setContent = (value) => currentElement.textContent = value;
     const getString = () => currentElement.outerHTML;
     const addStyleClass = (styleClass) =>{
         lastStyleClass = styleClass;
@@ -27,6 +29,7 @@ const currentHtmlElement = (()=>{
         setElement,
         getTag,
         getContent,
+        setContent,
         getString,
         addStyleClass,
         removeLastStyleClass
@@ -39,7 +42,13 @@ function selectHtmlElement(event){
     currentHtmlElement.setElement(event.target);
     prevCurrentSelectElement.textContent = currentHtmlElement.getTag();
     currentHtmlElement.addStyleClass('element-selected');
+    itemSelectedEditTextArea.value = currentHtmlElement.getContent();
 }
+function prevUpdateTexContentItemSelected(e){
+    currentHtmlElement.setContent(e.target.value);
+}
+
+itemSelectedEditTextArea.addEventListener('input',(e)=>{prevUpdateTexContentItemSelected(e)});
 
 class HtmlElementGenerator{
     constructor(htmlElement){
